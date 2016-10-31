@@ -11,3 +11,18 @@ if (hasGetUserMedia()) {
 } else {
   alert('getUserMedia() is not supported in your browser');
 }
+
+window.addEventListener("deviceorientation", handleOrientation, true);
+
+function handleOrientation(event) {
+  var absolute = event.absolute;
+  var alpha    = event.alpha;
+  var beta     = event.beta;
+  var gamma    = event.gamma;
+
+  if (alpha > 0) && (alpha < 45) {
+    document.getElementById('image').toggleClass('invisible', false);
+  } else {
+    document.getElementById('image').toggleClass('invisible', true);
+  }
+}
